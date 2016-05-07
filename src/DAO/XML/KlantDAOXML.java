@@ -133,7 +133,6 @@ public class KlantDAOXML implements KlantDAO {
                 }
         }
         this.writeFile( klantLijst );
-        
     }
 
     @Override

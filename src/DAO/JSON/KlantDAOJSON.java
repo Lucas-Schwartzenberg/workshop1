@@ -91,11 +91,7 @@ public class KlantDAOJSON implements KlantDAO{
         JSONArray klantLijst = this.readFile();
         for(Object o : klantLijst) {
             JSONObject klantJson = (JSONObject)o;
-            if (   (
-                    klant_id == 0 ||
-                    klant_id == (int)(long)klantJson.get("klant_id")
-                    )
-                 ){
+            if ( klant_id == (int)(long)klantJson.get("klant_id") ){
                 outputKlant.setVoornaam((String)klantJson.get("voornaam"));
                 outputKlant.setAchternaam((String)klantJson.get("achternaam"));
                 outputKlant.setTussenvoegsel((String)klantJson.get("tussenvoegsel"));

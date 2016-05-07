@@ -11,11 +11,10 @@ package Controller;
  */
 
 import View.KlantView;
-import DAO.MySQL.KlantDAOMySQL;
 import POJO.Klant;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import interfaceDAO.KlantDAO;
-import DAOFactory.KlantDAOFactory;
+import DAOFactory.DAOFactory;
 
 
 public class KlantController {
@@ -30,7 +29,7 @@ public class KlantController {
         klant.setTussenvoegsel(kView.getTussenvoegsel());
         klant.setEmail(kView.getEmail());
         
-        klantDAO = new KlantDAOFactory().getKlantDAO();
+        klantDAO = new DAOFactoryLucas().getKlantDAO();
         try {
             klantDAO.createKlant(klant);
         }
@@ -42,22 +41,19 @@ public class KlantController {
     
     public void read(){
         kView.read();
-        kView.print(
-                new KlantDAOFactory().getKlantDAO().readKlant( kView.getKlant_id() )
+        kView.print(new DAOFactory().getKlantDAO().readKlant( kView.getKlant_id() )
         );
     }
     
     public void update(){
         Klant klant = klantViewToKlant( kView.update() );
-        kView.print(
-                new KlantDAOFactory().getKlantDAO().updateKlant(klant)
+        kView.print(new DAOFactory().getKlantDAO().updateKlant(klant)
         );
     }
     
     public void delete(){
         kView.delete();
-        kView.print(
-                new KlantDAOFactory().getKlantDAO().readKlant( kView.getKlant_id() )
+        kView.print(new DAOFactory().getKlantDAO().readKlant( kView.getKlant_id() )
         );
     }
     

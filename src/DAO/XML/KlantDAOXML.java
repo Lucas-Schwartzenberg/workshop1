@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
 public class KlantDAOXML implements KlantDAO {
     static Logger logger = LoggerFactory.getLogger(KlantDAOXML.class);
  
-    private String fileLocation = "/home/lucas/Documents/Java/workshopdb.xml";
+    private String fileLocation = "/home/lucas/Documents/Java/workshopdbKlant.xml";
 
     @Override
     public Klant createKlant(Klant klant){
